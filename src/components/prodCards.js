@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <div class="container">
+        <div class="card">
+          <div class="image">
+            <h3>design</h3>
+          </div>
+          <div class="content">
+            Hello bros
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="image">
+            <div>design</div>
+          </div>
+          <div class="content">
+            Hello bros
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="card">
+          <div class="image">
+            <div>design</div>
+          </div>
+          <div class="content">
+            Hello bros
+          </div>
+        </div>
+      </div>
+      <script src="script.js"></script>
+  </body>
+</html>
+
+
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Sans-Serif;
+}
+
+body 
+{
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+  min-height: 100vh;
+  background: #f3f3f3;
+  overflow: hidden;
+}
+
+.container
+{
+  position: relative;
+  width: 1050px;
+  display: flex;
+  flex-wrap: wrap;
+  transition: 0.5s;
+  transform: skewY(-10deg);
+}
+
+.container .card
+{
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: #fff;
+  transition: 0.5s;
+}
+
+.container .card:before
+{
+  content: '';
+  position: absolute;
+  top: -15px;
+  left : 0;
+  width : 100% ;
+  height: 15px;
+  background: #00c7ff;
+  transform-origin: bottom ;
+  transform: skewX(45deg);
+  transition: 0.5s;
+}
+
+.container .card:after
+{
+  content: '';
+  position: absolute;
+  top: -15px;
+  left : -15px;
+  width : 15px ;
+  height: 50%;
+  background: #00c7ff;
+  transform-origin: left ;
+  transform: skewY(45deg);
+  transition: 0.5s;
+  border-bottom: 200px solid #d9d9d9;
+}
+
+.container .card:hover
+{
+  transform: translateY(-40px);
+  
+}
+
+.container .card .image
+{
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #00c7ff;
+  display: flex;
+  justify-content: center;
+  align-items : center ;
+  flex-direction: column ;
+}
+
+.container .card .image h3
+{
+  position: relative;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.container .card .content
+{
+  position: relative;
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  color: #777;
+  text-align: center;
+  background: #fff;
+}
+
+.container .card .content:before
+{
+  content: '';
+  position: absolute;
+  left : 0;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(transparent , transparent , rgba( 0 , 0 ,0 ,0.1));
+  transform-origin: bottom ;
+  transform: skewX(45deg);
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+.container .card:hover .content:before
+{
+  transform: translateY(40px) skewX(45deg) ;
+  filter : blur(5px);
+  opacity: 0.5;
+}
+
+.container .card:nth-child(1)
+{
+  z-index: 3;
+}
+.container .card:nth-child(2)
+{
+  z-index: 2;
+}
+
+.container .card:nth-child(3)
+{
+  z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
