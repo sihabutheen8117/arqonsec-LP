@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send , Timer , Shield } from 'lucide-react';
 
 
 const ContactForm = () => {
@@ -35,7 +35,103 @@ const ContactForm = () => {
       };
     
       return (
-        <div className="min-h-screen mt-20 flex items-center justify-center p-4 relative overflow-hidden">
+        <div className="min-h-screen mt-20 flex items-center justify-center p-2 py-4 relative overflow-hidden flex-col">
+
+<div className="flex items-center justify-center relative overflow-hidden pb-6">
+      {/* Decorative animated dots */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[10%] left-[5%] w-2 h-2 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute top-[20%] right-[8%] w-2 h-2 bg-blue-400 rounded-full opacity-20 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute bottom-[15%] left-[10%] w-2 h-2 bg-blue-500 rounded-full opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-[25%] right-[12%] w-2 h-2 bg-blue-400 rounded-full opacity-20 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto text-center relative">
+        {/* Heading with shield icon */}
+        <div className="relative inline-block mb-8 animate-fade-in-up">
+          <h1 className="text-3xl md:text-5xl lg:text-5xl font-extrabold bg-gradient-to-br from-slate-900 via-blue-900 to-blue-500 bg-clip-text text-transparent leading-tight tracking-tight">
+            Contact Us
+          </h1>
+          
+          {/* Floating shield icon */}
+          <div className="absolute -top-6 -right-10 md:-top-8 md:-right-12 opacity-15 animate-float">
+            <Shield className="w-12 h-12 md:w-16 md:h-16 text-blue-600" strokeWidth={1.5} />
+          </div>
+          
+          {/* Accent underline */}
+          <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 h-1 w-0 bg-gradient-to-r from-transparent via-blue-500 to-transparent rounded-full animate-expand"></div>
+        </div>
+
+        {/* Subtitle */}
+        <p className="text-lg md:text-xl lg:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto animate-fade-in-up-delay font-normal">
+          Get in touch with our team to learn more about{' '}
+          <span className="text-blue-800 font-semibold relative inline-block">
+            ArqonSec's
+          </span>{' '}
+          cybersecurity solutions and how we can help protect your organization.
+        </p>
+      </div>
+
+      <style jsx>{`
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fade-in-up-delay {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes expand {
+          from {
+            width: 0;
+            opacity: 0;
+          }
+          to {
+            width: 120px;
+            opacity: 1;
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-10px) rotate(5deg);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-up-delay {
+          animation: fade-in-up-delay 0.8s ease-out 0.2s both;
+        }
+
+        .animate-expand {
+          animation: expand 1s ease-out 0.3s both;
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+      `}</style>
+    </div> 
           <style>{`
             @keyframes float {
               0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -140,7 +236,7 @@ const ContactForm = () => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
+                            className="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
                             placeholder="John Doe"
                           />
                         </div>
@@ -152,8 +248,20 @@ const ContactForm = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
-                            placeholder="john@example.com"
+                            className="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
+                            placeholder="your@domain.com"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                          <input
+                            type="number"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
+                            placeholder="+966 XX XXX XXXX"
                           />
                         </div>
     
@@ -164,8 +272,20 @@ const ContactForm = () => {
                             name="subject"
                             value={formData.subject}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
+                            className="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
                             placeholder="How can we help?"
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">Company</label>
+                          <input
+                            type="text"
+                            name="subject"
+                            value={formData.subject}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none"
+                            placeholder="Your Company name"
                           />
                         </div>
     
@@ -176,9 +296,24 @@ const ContactForm = () => {
                             value={formData.message}
                             onChange={handleChange}
                             rows="4"
-                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none resize-none"
-                            placeholder="Tell us more about your project..."
+                            className="w-full px-4 py-2.5 rounded-xl border-2 border-gray-200 input-focus transition-all outline-none resize-none"
+                            placeholder="Tell us more about your needs and how can we help you ?"
                           />
+                        </div>
+
+                        <div class="bg-white shadow-md rounded-2xl p-3 w-full ">
+
+                          <div class="flex items-center space-x-3">
+                            <input
+                              id="agree"
+                              type="checkbox"
+                              class="w-5 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-400 cursor-pointer"
+                            />
+                            <label for="agree" class="text-sm text-gray-700 cursor-pointer select-none">
+                            I agree to the processing of my personal data according to the 
+                              <a href="#" class="text-blue-600 hover:underline"> Privacy Policy</a>
+                            </label>
+                          </div>
                         </div>
     
                         <button
@@ -218,8 +353,9 @@ const ContactForm = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-lg mb-1">Email</h4>
-                          <p className="text-purple-100">contact@company.com</p>
-                          <p className="text-purple-100">support@company.com</p>
+                          <p className="text-purple-100">info@arqonsec.sa</p>
+                          <p className="text-purple-100">sales@arqonsec.sa</p>
+                          <p className="text-purple-100">support@arqonsec.sa</p>
                         </div>
                       </div>
     
@@ -229,8 +365,8 @@ const ContactForm = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-lg mb-1">Phone</h4>
-                          <p className="text-purple-100">+1 (555) 123-4567</p>
-                          <p className="text-purple-100">+1 (555) 765-4321</p>
+                          <p className="text-purple-100">+966 55 544 0640</p>
+                          <p className="text-purple-100">Available 24/7 for urgent security matters</p>
                         </div>
                       </div>
     
@@ -240,11 +376,27 @@ const ContactForm = () => {
                         </div>
                         <div>
                           <h4 className="font-semibold text-lg mb-1">Office</h4>
-                          <p className="text-purple-100">123 Business Street</p>
-                          <p className="text-purple-100">San Francisco, CA 94105</p>
+                          <p className="text-purple-100">King Fahd Road, Olaya District</p>
+                          <p className="text-purple-100">Riyadh 12313, Saudi Arabia</p>
                         </div>
                       </div>
+
+                      <div className="flex items-start gap-4 group">
+                        <div className="bg-white/10 backdrop-blur-sm p-4 rounded-2xl group-hover:bg-white/20 transition-all duration-300">
+                          <Timer className="text-white" size={24} />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-lg mb-1">Business Hours</h4>
+                          <p className="text-purple-100">Sunday - Thursday: 8:00 AM - 6:00 PM</p>
+                          <p className="text-purple-100">Friday - Saturday: Emergency support only</p>
+                        </div>
+                      </div>
+
+
                     </div>
+
+
+                    
     
                     {/* Animated decoration */}
                     <div className="mt-12">

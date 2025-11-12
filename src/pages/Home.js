@@ -47,7 +47,6 @@ const Home = () => {
     return (
       <div className="">
     
-        <Header/>
     
         <div className='flex min-h-screen items-center justify-center'>
           <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 z-10 ">
@@ -226,9 +225,6 @@ const Home = () => {
           </div>
         </div>
 
-        <div className=''>
-          <Footer/>
-        </div>
   
       </div>
     );
