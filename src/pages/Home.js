@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, Lock, Palette, Rocket, Lightbulb, Globe, Menu, X } from 'lucide-react';
+import { Zap, Lock, Palette, Rocket, Lightbulb, Globe, Menu, X , Shield } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BlobAnimation from '../components/BlobAnimation ';
 import SecLoader from '../components/SecLoader';
+import ProdCards from '../components/prodCards';
+import GlowingBlob from '../components/GlowingBlob'
+import TempProdCards from '../components/TempProdCards';
 
 const Home = () => {
 
@@ -13,42 +16,33 @@ const Home = () => {
         console.log('callback - particles.js config loaded');
       });
     }, []);
-  
-  
-   
-  
-    const features = [
-      {
-        icon: <Zap className="w-8 h-8" />,
-        title: "Lightning Fast",
-        description: "Experience blazing-fast performance with optimized architecture designed for speed and efficiency"
-      },
-      {
-        icon: <Lock className="w-8 h-8" />,
-        title: "Secure & Private",
-        description: "Enterprise-grade security with end-to-end encryption to protect your valuable data"
-      },
-      {
-        icon: <Palette className="w-8 h-8" />,
-        title: "Beautiful Design",
-        description: "Stunning interfaces crafted with attention to detail for an exceptional user experience"
-      },
-      {
-        icon: <Rocket className="w-8 h-8" />,
-        title: "Scalable",
-        description: "Built to grow with your needs, from startup to enterprise with seamless scaling"
-      },
-      {
-        icon: <Lightbulb className="w-8 h-8" />,
-        title: "Innovative",
-        description: "Cutting-edge technology and features that keep you ahead of the competition"
-      },
-      {
-        icon: <Globe className="w-8 h-8" />,
-        title: "Global Reach",
-        description: "Connect with audiences worldwide through our robust global infrastructure"
-      }
+
+    const texts = [
+      "document becomes a digital fingerprint !",
+      "access gets tracked !",
+      "leak gets caught !"
     ];
+    
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isTyping, setIsTyping] = useState(true);
+    
+    useEffect(() => {
+      const timer = setInterval(() => {
+        setIsTyping(false);
+        
+        setTimeout(() => {
+          setCurrentIndex((prev) => (prev + 1) % texts.length);
+          setTimeout(() => {
+            setIsTyping(true);
+          }, 100);
+        }, 500);
+      }, 4000);
+      
+      return () => clearInterval(timer);
+    }, []);
+    
+  
+
   
     return (
       <div className="">
@@ -58,9 +52,10 @@ const Home = () => {
         <div className='flex min-h-screen items-center justify-center'>
           <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 z-10 ">
             <div className="max-w-5xl mx-auto text-center">
-              <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
-              Turn Your Data Into <span className='text-[#0056b3]'> Fort Knox</span>
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
+              Turn Your Data Into 
               </h1>
+              <h1 className='text-[#0056b3] text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 leading-tight bg-clip-text  animate-fade-in'> Fort Knox</h1>
               <p className="text-xl md:text-2xl text-black/80 mb-12 max-w-3xl mx-auto font-light animate-fade-in-delay">
               Every document becomes a digital fingerprint. Every access gets tracked. Every leak gets caught. Welcome to the future of data protection.
               </p>
@@ -129,27 +124,68 @@ const Home = () => {
           </section>
         </div>
       
-        <section id="features" className="relative z-10 py-20 px-6">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 transition-all duration-500 hover:bg-white/10 hover:border-white/30 hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/30"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-pink-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative z-10">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center mb-6 text-white">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-white/70 leading-relaxed">{feature.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className=''>
+          <section className="relative flex items-center justify-center z-10 ">
+            <div className="max-w-5xl mx-auto text-center">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold  leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
+              Why Choose ArqonSec ?
+              </h1>
+              <h1 className="text-[#0056b3] text-3xl md:text-4xl lg:text-4xl font-extrabold leading-tight bg-clip-text animate-fade-in mt-3">
+                Every{" "}
+                <span
+                  className="inline-flex items-baseline"
+                  style={{ verticalAlign: "middle" }}
+                >
+                  <span
+                    className={`font-mono text-inherit whitespace-nowrap overflow-hidden border-r-4 border-black pr-1 text-red-500 ${
+                      isTyping ? "animate-typing" : ""
+                    }`}
+                    style={{
+                      animation: isTyping
+                        ? "typing 3s steps(30, end) forwards, blink 0.7s step-end infinite"
+                        : "blink 0.7s step-end infinite",
+                      display: "inline-block",
+                      verticalAlign: "middle",
+                      lineHeight: "1",
+                    }}
+                  >
+                    {texts[currentIndex]}
+                  </span>
+                </span>
+
+                <style jsx>{`
+                  @keyframes typing {
+                    from {
+                      width: 0;
+                    }
+                    to {
+                      width: 100%;
+                    }
+                  }
+
+                  @keyframes blink {
+                    50% {
+                      border-color: transparent;
+                    }
+                  }
+
+                  .animate-typing {
+                    animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+                  }
+                `}</style>
+              </h1>
+
+            </div>
+          </section>
+        </div>
+
+
+    
+
+        <section id="products" className="relative z-10">
+          <ProdCards />
         </section>
+     
   
         <style jsx>{`
           @keyframes gradient {
@@ -177,8 +213,22 @@ const Home = () => {
             opacity: 0;
           }
         `}</style>
-  
-        <div id="particles-js"></div>
+
+        <div className=''>
+          <TempProdCards/>
+        </div>
+
+
+        <div className='relative w-full h-screen'>
+          <div id="particles-js" className='relative'></div>
+          <div className='absolute inset-0 pointer-events-none z-10'>
+            <GlowingBlob/>
+          </div>
+        </div>
+
+        <div className=''>
+          <Footer/>
+        </div>
   
       </div>
     );

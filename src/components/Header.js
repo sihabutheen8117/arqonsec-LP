@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState , useEffect } from 'react';
 import {  Menu, X , Globe} from 'lucide-react';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 
@@ -22,13 +23,13 @@ const Header = () => {
             <ul className="hidden md:flex gap-8 ">
               {['Home', 'Products', 'Services', 'Partners' , 'About' , 'Contact' , 'Meetings' ].map((item) => (
                 <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`}
+                  <Link
+                    to={`/${item.toLowerCase()}`}
                     className="text-gray-600/80 hover:text-gray-600 transition-all relative group"
                   >
                     {item}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
-                  </a>
+                  </Link >
                 </li>
               ))}
               <div className=''>
