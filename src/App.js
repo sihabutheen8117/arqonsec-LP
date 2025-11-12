@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Meetings from './pages/Meetings';
 import Contact from './pages/Contact';
+import Products from './pages/Products'
 
 import './App.css';
 import 'particles.js'
@@ -71,6 +72,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/meetings" element={ <Meetings/> } />
             <Route path="/contact" element={ <ContactForm /> } />
+            <Route path="/products" element={ <Products /> } />
+
           </Routes>
 
           <Footer/>
