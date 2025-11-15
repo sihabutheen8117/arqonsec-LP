@@ -216,7 +216,7 @@ const TempProdCards = () => {
   ];
 
   return (
-    <div className="min-h-screen  p-8 flex items-center justify-center">
+    <div className="p-8 flex items-center justify-center">
       <div className="max-w-7xl w-full">
         {/* Header */}
         <div className="text-center mb-16">

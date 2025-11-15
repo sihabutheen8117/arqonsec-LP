@@ -19,7 +19,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="bg-white flex flex-col">
       {/* Spacer */}
       <div className="flex-grow"></div>
 
@@ -59,7 +59,7 @@ const Footer = () => {
         <div
           className="relative pt-16 pb-8 overflow-hidden rounded-tl-[120px]"
           style={{
-            background: "linear-gradient(90deg, #00093c 0%, #2d0b00 100%)",
+            background: "linear-gradient(90deg, #202020 30%, #337418 90%)",
           }}
         >
           {/* Animated Waves */}
@@ -105,7 +105,7 @@ const Footer = () => {
               <div className="space-y-4 transform transition-all duration-500 hover:scale-105">
                 <div className="relative inline-block group">
                   <div className="text-2xl font-audiowide bg-white bg-clip-text text-transparent font-medium">
-                    ArqonSec ❯
+                  <img src='/logos/arqonsec-white-02.png' alt='logo' className='h-8'/>
                   </div>
                   <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
                 </div>
@@ -158,7 +158,7 @@ const Footer = () => {
                   <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
                 </div>
                 <ul className="space-y-2">
-                  {["Product", "Services", "Partners", "About", "Contact"].map((link, idx) => (
+                  {["Services", "Partners", "About", "Contact"].map((link, idx) => (
                     <li key={idx} className="group flex items-center">
                       <ArrowRight
                         size={14}

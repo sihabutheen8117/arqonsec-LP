@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, Lock, Palette, Rocket, Lightbulb, Globe, Menu, X , Shield } from 'lucide-react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import BlobAnimation from '../components/BlobAnimation ';
 import SecLoader from '../components/SecLoader';
 import ProdCards from '../components/prodCards';
-import GlowingBlob from '../components/GlowingBlob'
+import GlowingBlob from '../components/GlowingBlob';
 import TempProdCards from '../components/TempProdCards';
+import SimpleImplementation from '../components/SimpleImplementation';
+import ArqonSecLogo from '../components/logos/ArqonSecLogo';
+import Emp_Meth from '../components/Emp_Meth'
 
 const Home = () => {
 
   
-    useEffect(() => {
-      window.particlesJS.load('particles-js', '/particles.json', function () {
-        console.log('callback - particles.js config loaded');
-      });
-    }, []);
+    // useEffect(() => {
+    //   window.particlesJS.load('particles-js', '/particles.json', function () {
+    //     console.log('callback - particles.js config loaded');
+    //   });
+    // }, []);
 
     const texts = [
       "document becomes a digital fingerprint !",
@@ -45,53 +45,70 @@ const Home = () => {
 
   
     return (
-      <div className="">
-    
-    
-        <div className='flex min-h-screen items-center justify-center'>
-          <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 z-10 ">
-            <div className="max-w-5xl mx-auto text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
-              Turn Your Data Into 
+      <div className="mt-36">
+
+        <div className="max-w-6xl mx-auto">
+              <h1 className="text-3xl mb-3 md:text-4xl lg:text-6xl font-bold leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
+                Turn Your Data Into Fort Knox
               </h1>
-              <h1 className='text-[#0056b3] text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 leading-tight bg-clip-text  animate-fade-in'> Fort Knox</h1>
-              <p className="text-xl md:text-2xl text-black/80 mb-12 max-w-3xl mx-auto font-light animate-fade-in-delay">
+             
+          <div className=" bg-[#5dd62c] py-10 rounded-tr-3xl rounded-bl-3xl"
+            style={{
+              background: "linear-gradient(135deg, #202020 0%, #0f0f0f 100%)"
+            }}
+          >
+            <div className='w-full flex justify-around text-[#f8f8f8]'>
+              <div className='font-inter font-semibold text-3xl my-auto'> Your Last Line Defense</div>
+              <img src='/logos/arqonsec-white-01.png' alt='' className='h-24'/>
+            </div>
+          </div>
+        </div>
+
+    
+        <div className='flex flex-col lg:flex-row items-center justify-center gap-12 px-6'>
+
+
+       
+
+          <section className="relative flex items-center justify-center pt-10 z-10 flex-1">
+            <div className="max-w-5xl mx-auto text-center lg:text-left font-inter">
+              
+              <p className="text-xl md:text-2xl text-black/80 mb-12 max-w-3xl mx-auto lg:mx-0 font-light animate-fade-in-delay">
               Every document becomes a digital fingerprint. Every access gets tracked. Every leak gets caught. Welcome to the future of data protection.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
-                <button className="group relative text-white px-8 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/50">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-delay-2">
+                <button className="group relative text-white px-8 py-2.5 bg-[#5dd62c] hover:bg-[#337418] rounded-full font-semibold text-lg transition-all hover:scale-105 shadow-lg hover:shadow-xl">
                   <span className="relative z-10">See it in Action</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-pink-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </button>
-                <button className="px-7 py-2.5 bg-white/10 backdrop-blur-sm rounded-full font-semibold text-lg border-2 border-white/30 hover:bg-white/20 hover:border-white/50 transition-all hover:scale-105">
-                  Explore Products
+                <button className="px-7 py-2.5 bg-white/10 backdrop-blur-sm rounded-full font-semibold text-lg border-2 border-gray-300 hover:bg-gray-100 hover:border-gray-400 transition-all hover:scale-105">
+                  Explore Services
                 </button>
               </div>
             </div>
           </section>
-          <div className='px-10'>
-            <BlobAnimation/>
+          {/* <div className='flex-1 flex items-center justify-center'>
+            <ArqonSecLogo size={300} />
           </div>
-          
+           */}
         </div>
 
 
-        <div className='flex min-h-screen items-center justify-center mx-10'>
+        <div className='flex items-center justify-center max-w-7xl mx-auto'>
           <div className='px-10'>
             <SecLoader/>
           </div>
-          <section className="relative min-h-screen flex items-center justify-center px-6 z-10">
+          <section className="relative flex items-center justify-center px-6 z-10">
             <div className="max-w-5xl mx-auto text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold mb-6 leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
+              <h1 className="text-3xl md:text-4xl lg:text-6xl font-inter font-extrabold mb-6 leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
                 Control access. Reduce risk. Protect data.<span className='text-[#0056b3]'></span>
               </h1>
-              <ul className="space-y-3">
+              <ul className="space-y-3 text-left">
                 <li className="flex gap-3">
                   <div
-                    className="flex-shrink-0 w-1.5 h-1.5 bg-[#0043FF] mt-2"
+                    className="flex-shrink-0 w-1.5 h-1.5 bg-[#5dd62c] mt-2"
                     style={{ borderRadius: "2px" }}
                   ></div>
-                  <p className="text-[#494949] text-[16px] md:text-[18px] leading-relaxed font-dm-sans sm-tracking-features-description">
+                  <p className="text-[#494949] text-[16px] md:text-[18px] leading-relaxed sm-tracking-features-description">
                     <span className="font-bold">Data Shielding : </span>
                     <span className="font-normal">Every file becomes a fortress with <strong>invisible screen watermarks</strong> and <strong>print protection</strong>, ensuring your data is always traceable and tamper-proof.</span>
                   </p>
@@ -99,10 +116,10 @@ const Home = () => {
 
                 <li className="flex gap-3">
                   <div
-                    className="flex-shrink-0 w-1.5 h-1.5 bg-[#0043FF] mt-2"
+                    className="flex-shrink-0 w-1.5 h-1.5 bg-[#5dd62c] mt-2"
                     style={{ borderRadius: "2px" }}
                   ></div>
-                  <p className="text-[#494949] text-[16px] md:text-[18px] leading-relaxed font-dm-sans sm-tracking-features-description">
+                  <p className="text-[#494949] text-[16px] md:text-[18px] leading-relaxed sm-tracking-features-description">
                     <span className="font-bold">Access Control & Monitoring : </span>
                     <span className="font-normal">Every access, view, or print is <strong>monitored in real-time</strong>, creating a complete <strong>audit trail</strong> and instant alerts for suspicious activities.</span>
                   </p>
@@ -110,10 +127,10 @@ const Home = () => {
 
                 <li className="flex gap-3">
                   <div
-                    className="flex-shrink-0 w-1.5 h-1.5 bg-[#0043FF] mt-2"
+                    className="flex-shrink-0 w-1.5 h-1.5 bg-[#5dd62c] mt-2"
                     style={{ borderRadius: "2px" }}
                   ></div>
-                  <p className="text-[#494949] text-[16px] md:text-[18px] leading-relaxed font-dm-sans sm-tracking-features-description">
+                  <p className="text-[#494949] text-[16px] md:text-[18px] leading-relaxed sm-tracking-features-description">
                     <span className="font-bold">Extended Defense : </span>
                     <span className="font-normal">Go beyond documents with <strong>data masking</strong>, <strong>USB protection</strong>, and <strong>password security</strong> — forming a multi-layer barrier around your enterprise ecosystem.</span>
                   </p>
@@ -123,20 +140,31 @@ const Home = () => {
           </section>
         </div>
       
+       
+
+    
+
+        {/* <SimpleImplementation /> */}
+
         <div className=''>
+
+          <Emp_Meth/>
+        </div>
+
+        <div className='font-inter'>
           <section className="relative flex items-center justify-center z-10 ">
             <div className="max-w-5xl mx-auto text-center">
-              <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold  leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
+              <h1 className="text-3xl md:text-3xl lg:text-4xl font-extrabold  leading-tight bg-gradient-to-b from-black to-black/70 bg-clip-text text-transparent animate-fade-in">
               Why Choose ArqonSec ?
               </h1>
-              <h1 className="text-[#0056b3] text-3xl md:text-4xl lg:text-4xl font-extrabold leading-tight bg-clip-text animate-fade-in mt-3">
+              <h1 className="text-[#5dd62c] text-xl md:text-2xl lg:text-3xl font-extrabold leading-tight bg-clip-text animate-fade-in mt-2">
                 Every{" "}
                 <span
                   className="inline-flex items-baseline"
                   style={{ verticalAlign: "middle" }}
                 >
                   <span
-                    className={`font-mono text-inherit whitespace-nowrap overflow-hidden border-r-4 border-black pr-1 text-red-500 ${
+                    className={`font-mono text-inherit whitespace-nowrap overflow-hidden border-r-4 border-[#5dd62c] pr-1 text-[#337418] ${
                       isTyping ? "animate-typing" : ""
                     }`}
                     style={{
@@ -179,8 +207,6 @@ const Home = () => {
         </div>
 
 
-    
-
         <section id="products" className="relative z-10">
           <ProdCards />
         </section>
@@ -213,17 +239,19 @@ const Home = () => {
           }
         `}</style>
 
+        
+{/* 
         <div className=''>
           <TempProdCards/>
-        </div>
+        </div> */}
 
 
-        <div className='relative w-full h-screen'>
+        {/* <div className='relative w-full h-screen'>
           <div id="particles-js" className='relative'></div>
           <div className='absolute inset-0 pointer-events-none z-10'>
             <GlowingBlob/>
           </div>
-        </div>
+        </div> */}
 
   
       </div>
