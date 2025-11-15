@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Zap, Lock, Palette, Rocket, Lightbulb, Globe, Menu, X } from 'lucide-react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Meetings from './pages/Meetings';
-import Contact from './pages/Contact';
-import Products from './pages/Products'
+import Company from './pages/Company';
+import Services from './pages/Services';
+import ContactForm from './components/ContactForm';
 
 import './App.css';
-import 'particles.js'
-import ContactForm from './components/ContactForm';
+import 'particles.js';
 
 function App() {
 
@@ -33,18 +31,18 @@ function App() {
       }, []);
 
   return (
-      <div className="relative min-h-screen bg-white overflow-hidden">
+      <div className="relative bg-white overflow-hidden">
         <Header/>
 
           {/* background design */}
           <div className="fixed inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-300 via-pink-200 to-blue-200 opacity-20 animate-pulse" 
+            <div className="absolute inset-0 bg-gradient-to-br from-[#5dd62c]/10 via-[#337418]/5 to-gray-100 opacity-50 animate-pulse" 
                  style={{ backgroundSize: '400% 400%', animation: 'gradient 15s ease infinite' }} />
           </div>
 
           {/* corner designs */}
           <div 
-            className="fixed w-96 h-96 rounded-full bg-purple-300 opacity-30 blur-3xl transition-transform duration-1000 ease-out"
+            className="fixed w-96 h-96 rounded-full bg-[#5dd62c] opacity-10 blur-3xl transition-transform duration-1000 ease-out"
             style={{ 
               top: '-12rem', 
               right: '-12rem',
@@ -52,7 +50,7 @@ function App() {
             }}
           />
           <div 
-            className="fixed w-80 h-80 rounded-full bg-pink-400 opacity-30 blur-3xl transition-transform duration-1000 ease-out"
+            className="fixed w-80 h-80 rounded-full bg-[#337418] opacity-10 blur-3xl transition-transform duration-1000 ease-out"
             style={{ 
               bottom: '-10rem', 
               left: '-10rem',
@@ -60,7 +58,7 @@ function App() {
             }}
           />
           <div 
-            className="fixed w-72 h-72 rounded-full bg-blue-300 opacity-30 blur-3xl transition-transform duration-1000 ease-out"
+            className="fixed w-72 h-72 rounded-full bg-[#5dd62c] opacity-10 blur-3xl transition-transform duration-1000 ease-out"
             style={{ 
               top: '50%', 
               left: '50%',
@@ -69,11 +67,9 @@ function App() {
           />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/meetings" element={ <Meetings/> } />
-            <Route path="/contact" element={ <ContactForm /> } />
-            <Route path="/products" element={ <Products /> } />
-
+            <Route path="/company" element={<Company />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<ContactForm />} />
           </Routes>
 
           <Footer/>
