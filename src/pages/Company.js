@@ -92,10 +92,10 @@ const Company = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-inter">
       <section className="relative bg-gradient-to-br from-[#337418] to-[#5dd62c] py-24 overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
             About ArqonSec
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">

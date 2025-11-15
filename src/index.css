@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* GLOBAL FONT RESET */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,11 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
+/* GLOW ANIMATION */
 @keyframes rainbowGlow {
   0% { filter: drop-shadow(0 0 5px #ff0000); color: #ff0000; }
   20% { filter: drop-shadow(0 0 5px #ff9900); color: #ff9900; }
@@ -26,7 +22,112 @@ code {
   100% { filter: drop-shadow(0 0 5px #ff00ff); color: #ff00ff; }
 }
 
+/* Slide-up + fade-in animation */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up-fade {
+  animation: slideUpFade 0.8s ease-out forwards;
+}
+
+
 .glow-animation {
   animation: rainbowGlow 2s linear infinite;
 }
 
+/* ========================================================= */
+/*  BUCKET CARDS WITH 4-SIDED MOVING DOTS                   */
+/* ========================================================= */
+
+/* UNIFORM CARD HEIGHT */
+.bucket-inner {
+  background: white;
+  border-radius: 18px;
+  padding: 32px;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: 
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+/* OUTSIDE BUCKET FRAME */
+.bucket-frame {
+  position: relative;
+  padding: 14px;
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* TOP BORDER */
+.bucket-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #333 0 2px, transparent 2px 8px);
+  animation: moveTop 2s linear infinite;
+}
+
+/* BOTTOM BORDER */
+.bucket-frame::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #333 0 2px, transparent 2px 8px);
+  animation: moveBottom 2s linear infinite reverse;
+}
+
+/* LEFT BORDER */
+.bucket-frame .left-dots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: repeating-linear-gradient(180deg, #333 0 2px, transparent 2px 8px);
+  animation: moveLeft 2s linear infinite;
+  z-index: 1;
+}
+
+/* RIGHT BORDER */
+.bucket-frame .right-dots {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: repeating-linear-gradient(180deg, #333 0 2px, transparent 2px 8px);
+  animation: moveRight 2s linear infinite reverse;
+  z-index: 1;
+}
+
+/* BORDER ANIMATIONS */
+@keyframes moveTop { 0% { background-position-x: 0; } 100% { background-position-x: 16px; } }
+@keyframes moveBottom { 0% { background-position-x: 0; } 100% { background-position-x: 16px; } }
+@keyframes moveLeft { 0% { background-position-y: 0; } 100% { background-position-y: 16px; } }
+@keyframes moveRight { 0% { background-position-y: 0; } 100% { background-position-y: 16px; } }
+
+/* HOVER POPUP EFFECT */
+.bucket-inner:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.25);
+}

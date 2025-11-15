@@ -14,7 +14,7 @@ const GetInTouchModal = ({ isOpen, onClose }) => {
       
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
         <div 
-          className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto"
+          className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full  overflow-y-auto pointer-events-auto"
           onClick={(e) => e.stopPropagation()}
         >
           <button

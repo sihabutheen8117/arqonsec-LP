@@ -27,10 +27,17 @@ const ContactFormModal = () => {
 
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl font-bold text-[#0f0f0f] mb-2">
-        Get in Touch
-      </h2>
-      <p className="text-gray-600 mb-6">
+      
+
+      <div className='flex gap-4'>
+        <h2 className="text-1xl md:text-2xl font-bold text-[#0f0f0f] mb-2">
+          Get in Touch
+        </h2>
+        <div className="w-px h-8 bg-gray-400" />
+        <img src='/logos/arqonsec-black-02.png' alt='' className='h-6 my-auto'/>
+      </div>
+      
+      <p className="text-gray-600 mb-2 ">
         Let us know how we can help protect your organization
       </p>
 
@@ -46,7 +53,7 @@ const ContactFormModal = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-lg focus:border-[#5dd62c] focus:outline-none transition-colors"
+            className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-[#5dd62c] focus:outline-none transition-colors"
             placeholder="Your name"
           />
         </div>
