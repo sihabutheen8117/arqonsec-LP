@@ -117,7 +117,7 @@ const ProdCards = () => {
                           </h3>
                         </div>
                       </h3>
-                    <p className='text-lg'>Military-grade protection for your most sensitive data and documents. </p>
+                    <p className='text-lg'>Enterprise-grade protection for your most sensitive data and documents. </p>
                   </div>
                 </div>
                 <div className="card">

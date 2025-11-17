@@ -29,9 +29,25 @@ const Footer = () => {
         <div className="absolute -top-1 left-0 w-52 h-52 overflow-hidden">
           <svg viewBox="0 0 100 100" className="w-full h-full">
             <defs>
-              <linearGradient id="cornerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <animate attributeName="x1" values="0%;100%;0%" dur="4s" repeatCount="indefinite" />
-                <animate attributeName="y1" values="0%;100%;0%" dur="4s" repeatCount="indefinite" />
+              <linearGradient
+                id="cornerGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+              >
+                <animate
+                  attributeName="x1"
+                  values="0%;100%;0%"
+                  dur="4s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="y1"
+                  values="0%;100%;0%"
+                  dur="4s"
+                  repeatCount="indefinite"
+                />
                 <stop offset="0%" stopColor="#00093c" />
                 <stop offset="100%" stopColor="#2d0b00" />
               </linearGradient>
@@ -64,53 +80,66 @@ const Footer = () => {
         >
           {/* Animated Waves */}
           <svg
-  className="absolute inset-0 w-full h-full opacity-10"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 1920 100"
-  preserveAspectRatio="none"
->
-  <defs>
-    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.1" />
-      <stop offset="50%" stopColor="#ffffff" stopOpacity="0.3" />
-      <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
-    </linearGradient>
-  </defs>
+            className="absolute inset-0 w-full h-full opacity-10"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1920 100"
+            preserveAspectRatio="none"
+          >
+            <defs>
+              <linearGradient
+                id="waveGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.1" />
+                <stop offset="50%" stopColor="#ffffff" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#ffffff" stopOpacity="0.1" />
+              </linearGradient>
+            </defs>
 
-  <path
-    d="M0,50 Q480,30 960,50 T1920,50 L1920,100 L0,100 Z"
-    fill="url(#waveGradient)"
-  >
-    <animate
-      attributeName="d"
-      values="
+            <path
+              d="M0,50 Q480,30 960,50 T1920,50 L1920,100 L0,100 Z"
+              fill="url(#waveGradient)"
+            >
+              <animate
+                attributeName="d"
+                values="
         M0,50 Q480,30 960,50 T1920,50 L1920,100 L0,100 Z;
         M0,50 Q480,70 960,50 T1920,50 L1920,100 L0,100 Z;
         M0,50 Q480,30 960,50 T1920,50 L1920,100 L0,100 Z"
-      dur="8s"
-      repeatCount="indefinite"
-    />
-  </path>
-</svg>
-
+                dur="8s"
+                repeatCount="indefinite"
+              />
+            </path>
+          </svg>
 
           {/* All Sections in Separate Columns */}
           <div className="max-w-7xl mx-auto px-8 relative z-10">
             <div
               className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12 transition-all duration-1000 ${
-                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
               }`}
             >
               {/* About */}
               <div className="space-y-4 transform transition-all duration-500 hover:scale-105">
                 <div className="relative inline-block group">
                   <div className="text-2xl font-audiowide bg-white bg-clip-text text-transparent font-medium">
-                  <img src='/logos/arqonsec-white-02.png' alt='logo' className='h-8'/>
+                    <img
+                      src="/logos/arqonsec-white-02.png"
+                      alt="logo"
+                      className="h-8"
+                    />
                   </div>
                   <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
                 </div>
                 <p className="text-white/80 text-sm leading-relaxed">
-                Leading cybersecurity solutions in Saudi Arabia and the Middle East. Protecting enterprises with innovative screen watermarking and print copy prevention technologies.
+                  Leading cybersecurity solutions in Saudi Arabia and the Middle
+                  East. Protecting enterprises with innovative screen
+                  watermarking and print copy prevention technologies.
                 </p>
                 <div className="flex space-x-4 pt-2">
                   {[Facebook, Twitter, Linkedin, Instagram].map((Icon, idx) => (
@@ -128,37 +157,19 @@ const Footer = () => {
               {/* Services */}
               <div className="space-y-4 transform transition-all duration-500 hover:scale-105">
                 <div className="relative inline-block group">
-                  <h3 className="text-white text-lg font-semibold mb-3">Support</h3>
+                  <h3 className="text-white text-lg font-semibold mb-3">
+                    Support
+                  </h3>
                   <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
                 </div>
                 <ul className="space-y-2">
-                  {["Contact", "Technical Support", "Sales Inquiries", "Privacy Policy", "Consulting"].map(
-                    (service, idx) => (
-                      <li key={idx} className="group flex items-center">
-                        <ArrowRight
-                          size={14}
-                          className="text-white/0 group-hover:text-white/80 transition-all duration-300 mr-0 group-hover:mr-2"
-                        />
-                        <a
-                          href="#"
-                          className="text-white/80 text-sm hover:text-white transition-all duration-300"
-                        >
-                          {service}
-                        </a>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-
-              {/* Quick Links */}
-              <div className="space-y-4 transform transition-all duration-500 hover:scale-105">
-                <div className="relative inline-block group">
-                  <h3 className="text-white text-lg font-semibold mb-3">Quick Links</h3>
-                  <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
-                </div>
-                <ul className="space-y-2">
-                  {["Services", "Partners", "About", "Contact"].map((link, idx) => (
+                  {[
+                    "Contact",
+                    "Technical Support",
+                    "Sales Inquiries",
+                    "Privacy Policy",
+                    "Consulting",
+                  ].map((service, idx) => (
                     <li key={idx} className="group flex items-center">
                       <ArrowRight
                         size={14}
@@ -168,27 +179,58 @@ const Footer = () => {
                         href="#"
                         className="text-white/80 text-sm hover:text-white transition-all duration-300"
                       >
-                        {link}
+                        {service}
                       </a>
                     </li>
                   ))}
                 </ul>
               </div>
 
+              {/* Quick Links */}
+              <div className="space-y-4 transform transition-all duration-500 hover:scale-105">
+                <div className="relative inline-block group">
+                  <h3 className="text-white text-lg font-semibold mb-3">
+                    Quick Links
+                  </h3>
+                  <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
+                </div>
+                <ul className="space-y-2">
+                  {["Services", "Partners", "About", "Contact"].map(
+                    (link, idx) => (
+                      <li key={idx} className="group flex items-center">
+                        <ArrowRight
+                          size={14}
+                          className="text-white/0 group-hover:text-white/80 transition-all duration-300 mr-0 group-hover:mr-2"
+                        />
+                        <a
+                          href="#"
+                          className="text-white/80 text-sm hover:text-white transition-all duration-300"
+                        >
+                          {link}
+                        </a>
+                      </li>
+                    )
+                  )}
+                </ul>
+              </div>
+
               {/* Contact */}
               <div className="space-y-4 transform transition-all duration-500 hover:scale-105">
                 <div className="relative inline-block group">
-                  <h3 className="text-white text-lg font-semibold mb-3">Contact</h3>
+                  <h3 className="text-white text-lg font-semibold mb-3">
+                    Contact
+                  </h3>
                   <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-white via-cyan-300 to-transparent transition-all duration-700"></div>
                 </div>
                 <div className="space-y-3">
+                  {/*
                   <div className="flex items-start space-x-3 group cursor-pointer">
                     <MapPin
                       size={18}
                       className="text-white/70 mt-0.5 group-hover:text-white group-hover:scale-110 transition-all"
                     />
                     <span className="text-white/80 text-sm group-hover:text-white transition-colors">
-                    Riyadh, Saudi Arabia
+                      Riyadh, Saudi Arabia
                     </span>
                   </div>
                   <div className="flex items-center space-x-3 group cursor-pointer">
@@ -197,16 +239,17 @@ const Footer = () => {
                       className="text-white/70 group-hover:text-white group-hover:rotate-12 transition-all"
                     />
                     <span className="text-white/80 text-sm group-hover:text-white transition-colors">
-                    +966 55 544 0640
+                      +966 55 544 0640
                     </span>
                   </div>
+                  */}
                   <div className="flex items-center space-x-3 group cursor-pointer">
                     <Mail
                       size={18}
                       className="text-white/70 group-hover:text-white group-hover:scale-110 transition-all"
                     />
                     <span className="text-white/80 text-sm group-hover:text-white transition-colors">
-                    info@arqonsec.sa
+                      info@arqonsec.sa
                     </span>
                   </div>
                 </div>
